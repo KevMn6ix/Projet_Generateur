@@ -2,14 +2,15 @@
 // Created by kevmu on 28/10/2022.
 //
 
-#ifndef PROJET_GENERATEUR_N_TREE_H
-#define PROJET_GENERATEUR_N_TREE_H
+#ifndef PROJET_GENERATEUR_TREE_VERBE_H
+#define PROJET_GENERATEUR_TREE_VERBE_H
 #define ALPHABET 26
 
 
 typedef struct fl_vrb
 {
     char* forme_conj; // forme conjuguée
+    char* infinitif; // forme à l'infinitif
     char pers[2]; // Masculin/feminin
     char nombre_gr[2]; // singulier/ pluriel
     char temps[6]; // Passé present
@@ -40,4 +41,4 @@ typedef struct arbre_verbe
     noeud_vrb root;
 }tree_vrb;
 
-#endif //PROJET_GENERATEUR_N_TREE_H
+#endif //PROJET_GENERATEUR_TREE_VERBE_H
