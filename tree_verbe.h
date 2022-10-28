@@ -10,6 +10,7 @@
 typedef struct fl_vrb
 {
     char* forme_conj; // forme conjuguée
+    char* infinitif; // forme à l'infinitif
     char pers[2]; // Masculin/feminin
     char nombre_gr[2]; // singulier/ pluriel
     char temps[6]; // Passé present
