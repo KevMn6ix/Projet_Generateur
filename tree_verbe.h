@@ -5,13 +5,15 @@
 #ifndef PROJET_GENERATEUR_TREE_VERBE_H
 #define PROJET_GENERATEUR_TREE_VERBE_H
 #define ALPHABET 26
+#define N 26
+
 
 
 typedef struct fl_vrb
 {
     char* forme_conj; // forme conjuguée
     char* infinitif; // forme à l'infinitif
-    char pers[2]; // Masculin/feminin
+    char pers[2]; // je/tu/il/...
     char nombre_gr[2]; // singulier/ pluriel
     char temps[6]; // Passé present
 }fl_vrb;
@@ -40,5 +42,11 @@ typedef struct arbre_verbe
 {
     noeud_vrb root;
 }tree_vrb;
+
+void ajt_vrb_txt(char*);
+
+int isVrbInFichier(char*);
+
+noeud_vrb *creerNoeudVerbe(char lettre);
 
 #endif //PROJET_GENERATEUR_TREE_VERBE_H
