@@ -19,12 +19,11 @@ int main() {
         char *portion2 = strtok(NULL,d);
         char *portion3 = strtok(NULL,":");
 
-        if(strcmp(portion3,"Nom")==0)
+        if(strcmp(portion3,"Ver")==0)
         {
             printf("%s",ligne);
             if(!isVrbInFichier(portion2))
             {
-                printf("%s\n", portion2);
                 ajt_vrb_txt(portion2);
             }
         }

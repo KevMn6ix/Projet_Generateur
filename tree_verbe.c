@@ -34,7 +34,7 @@ tree_vrb creer_arbre_verbe()
 
             if(!isVrbInFichier(portion2))
             {
-                printf("%s\n", portion2);
+
                 ajt_vrb_txt(portion2);
             }
         }
