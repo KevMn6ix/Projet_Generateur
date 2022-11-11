@@ -4,9 +4,12 @@
 
 #ifndef PROJET_GENERATEUR_TREE_VERBE_H
 #define PROJET_GENERATEUR_TREE_VERBE_H
-#define ALPHABET 26
-#define N 26
 
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+
+#include "txt_fonctions.h"
 
 
 typedef struct fl_vrb
@@ -24,31 +27,32 @@ typedef struct maillon_l_fl_vrb
     struct maillon_fl_vrb *next;
 } *p_fl_vrb;
 
-typedef struct s_std_list
+typedef struct s_std_list_vrb
 {
     p_fl_vrb head;
 } l_fl_vrb;
 
-typedef struct noeud_vrb
+typedef struct s_letter_node_vrb
 {
     char lettre;
     int nb_formes; // nombre formes_flechies
+    int end_word;
     l_fl_vrb verbe;
-    struct noeud_vrb* sons[ALPHABET];
+    struct s_letter_node_vrb* sons[ALPHABET];
 
-}noeud_vrb;
+}t_letter_node_vrb, * p_letter_node_vrb;
 
-typedef struct arbre_verbe
+typedef struct s_tree_vrb
 {
-    noeud_vrb root;
-}tree_vrb;
-
-void ajt_vrb_txt(char*);
-
-int isVrbInFichier(char*);
-
-noeud_vrb *creerNoeudVerbe(char lettre);
+    p_letter_node_vrb root;
+}t_tree_vrb;
 
 
+p_letter_node_vrb createLetterNodeVerb(char letter);
+t_tree_vrb createEmptyTreeVerb();
+
+t_tree_vrb generateTreeVerb(FILE* filename);
+
+void generateVerb(t_tree_vrb tree);
 
 #endif //PROJET_GENERATEUR_TREE_VERBE_H
