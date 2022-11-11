@@ -49,4 +49,6 @@ int isVrbInFichier(char*);
 
 noeud_vrb *creerNoeudVerbe(char lettre);
 
+
+
 #endif //PROJET_GENERATEUR_TREE_VERBE_H
