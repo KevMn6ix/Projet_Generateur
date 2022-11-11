@@ -3,82 +3,89 @@
 //
 
 #include "tree_verbe.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#define MARKER ')'
+#include "txt_fonctions.h"
 
-tree_vrb creer_arbre_verbe()
+
+p_letter_node_vrb createLetterNodeVerb(char letter)
 {
-    FILE *fic ;
-    tree_vrb tree;
-
-    fic = fopen("test.txt","r");
-    char texte[256];
-
-    while(fgets(texte, 255, fic)!= NULL)
+    p_letter_node_vrb nouv;
+    nouv = (p_letter_node_vrb) malloc(sizeof(t_letter_node_vrb));
+    nouv->lettre = letter;
+    nouv->end_word = 0;
+    nouv->nb_formes = 0;
+    for (int i = 0; i < ALPHABET; i++)
     {
-        char ligne[256];
-        strcpy(ligne,texte);
-        char d[] = "\t";
-        char *portion1 = strtok(texte,d);
-
-        char *portion2 = strtok(NULL,d);
-
-        char *portion3 = strtok(NULL,":");
-
-
-        if(strcmp(portion3,"Ver")==0)
-        {
-            printf("%s",ligne);
-
-            if(!isVrbInFichier(portion2))
-            {
-
-                ajt_vrb_txt(portion2);
-            }
-        }
+        nouv->sons[i] = NULL;
     }
-    fclose(fic);
+    return nouv;
+}
+
+t_tree_vrb createEmptyTreeVerb()
+{
+    t_tree_vrb tree;
+    tree.root = createLetterNodeVerb('/');
     return tree;
 }
 
+t_tree_vrb generateTreeVerb(FILE* filename)
+{
+    t_tree_vrb tree = createEmptyTreeVerb();
+    p_letter_node_vrb temp = tree.root;
+    int cpt= 0;
 
+    FILE *file = fopen(filename, "r");
+    char texte[256];
 
-void ajt_vrb_txt(char* verbe){
+    while (fgets(texte, 255, file) != NULL) {
+        char ligne[256];
+        strcpy(ligne, texte);
+        char d[] = "\t";
+        char *portion1 = strtok(texte, d);
+        char *portion2 = strtok(NULL, d);
+        char *portion3 = strtok(NULL, ":");
 
-    FILE *fic = fopen("verbe.txt", "a+");
-    fputs(verbe,fic);
-    fputs("\n",fic);
-    fclose(fic);
-    return;
-}
+        if (strcmp(portion3, "Ver") == 0)
+        {
+            while (portion2[cpt] != '\0')
+            {
+                if (temp->sons[convertCharInInt(portion2[cpt])] == NULL)
+                {
+                    temp->sons[convertCharInInt(portion2[cpt])] = createLetterNodeVerb(portion2[cpt]);
+                    temp = temp->sons[convertCharInInt(portion2[cpt])];
+                    cpt++;
+                }
+                else
+                {
+                    temp = temp->sons[convertCharInInt(portion2[cpt])];
+                    cpt++;
+                }
 
-int isVrbInFichier(char* verbe){
-
-    FILE *fic = fopen("verbe.txt", "r");
-    char texte[24];
-    while(fgets(texte, 23, fic)!= NULL){
-
-        char d[] = "\n";
-        char *portion1 = strtok(texte,d);
-
-        if(strcmp(portion1,verbe)==0){
-            fclose(fic);
-            return 1;
+            }
+            temp->nb_formes++;
+            temp->end_word = 1;
+            temp = tree.root;
+            cpt = 0;
         }
     }
-    fclose(fic);
-    return 0;
+    fclose(file);
+    return tree;
 }
 
-noeud_vrb *creerNoeudVerbe(char lettre)
+void generateVerb(t_tree_vrb tree)
 {
-    noeud_vrb* new = malloc(sizeof(noeud_vrb));
-    new->lettre = lettre;
-    for(int i = 0; i < ALPHABET; i++)
-        new->sons[i] = NULL;
-    return new;
+    p_letter_node_vrb temp = tree.root;
+    int n;
+
+    while(temp->end_word != 1)
+    {
+        n = rand()%27;
+        if(temp->sons[n] != NULL)
+        {
+            temp=temp->sons[n];
+            printf("%c",temp->lettre);
+
+        }
+
+    }
+    printf(" ");
 }
-
-
