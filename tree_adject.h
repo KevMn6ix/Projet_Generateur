@@ -11,46 +11,52 @@
 
 #include "txt_fonctions.h"
 
-typedef struct fl_adject
+//On définit les maillons de notre liste chaîne qui va contenir les formes fléchies des adjectifs
+struct s_cell_adj
 {
-    int nb_formes; // Nombre de formes flechies
-    char* adj_fl;
-    char genre[3]; // Masculin/feminin
-    char nombre_gr[2]; //Nombre grammatical : singulier/ pluriel
-}fl_adject;
+    char* adjectif; //Forme fléchie de l'adjectif
+    char* genre; //Genre de l'adjectif
+    char* sing_plur; //Nombre grammatical de l'adjectif
 
+    struct s_cell_adj *next; //On initialise un maillon suivant
 
-typedef struct maillon_l_fl_adject
+};
+typedef struct s_cell_adj t_cell_adj, *p_cell_adj; //On définit un pointeur sur une cellule (p_cell_adj)
+
+//On définit notre liste chaînée de formes fléchies
+typedef struct s_std_list_adj
 {
-    fl_adject value;
-    struct maillon_fl_adj *next;
-} *p_fl_adject;
+    p_cell_adj head; //On définit la tête de notre liste
+}t_std_list_adj;
 
-typedef struct s_std_list_adject
-{
-    p_fl_adject head;
-} l_fl_adject;
-
+//On définit les noeud de notre arbre des adjectifs
 typedef struct s_letter_node_vrb_adject
 {
-    char lettre;
-    int nb_formes; // nombre formes_flechies
-    int end_word;
-    l_fl_adject adject;
-    struct s_letter_node_vrb_adject* sons[ALPHABET];
+    char lettre; //On initialise une variable permettant de stocker la lettre de notre noeud
+    int nb_formes; //On initialise une variable qui va stocker le nombre de formes fléchies de l'adjectif de base
+    int end_word; //On initialise un entier permettant de savoir si nous sommes à la fin d'un mot ou non
+    t_std_list_adj adjectifs; //On initialise la liste chaînée de nos formes fléchies
+    struct s_letter_node_vrb_adject* sons[ALPHABET]; //On initialise les fils de notre noeud
 
 }t_letter_node_adject, * p_letter_node_adject;
 
+//On définit une structure qui va correspondre à notre arbre d'adjectifs
 typedef struct s_tree_adject
 {
     p_letter_node_adject root;
 }t_tree_adject;
 
+//Cette fonction permet de créér un nouveau noeud à l'aide d'une lettre en entrée
 p_letter_node_adject createLetterNodeAdject(char letter);
+//Cette fonction permet de créer un arbre d'ajectifs vide
 t_tree_adject createEmptyTreeAdject();
 
+//Cette fonction permet de créer un nouveau maillon de notre liste chaînée à l'aide des informations de la forme fléchie de l'adjectif
+p_cell_adj createCellAdj(char* adjectif, char* genre, char* sing_plur);
+//Cette fonction permet de générer un arbre d'ajectifs de base à l'aide d'un dictionnaire
 t_tree_adject generateTreeAdject(FILE* filename);
 
+//Cette fonction permet de générer un adjectif de base à partir d'un arbre d'adjectifs
 void generateAdject(t_tree_adject tree);
 
 #endif //PROJET_GENERATEUR_TREE_ADJECT_H
