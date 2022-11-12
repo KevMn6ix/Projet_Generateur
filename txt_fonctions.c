@@ -4,6 +4,7 @@
 
 #include "txt_fonctions.h"
 
+//Cette variable permet de convertir un caractère en son numéro de l'alphabet à la même manière d'un chiffrement de Cesar
 int convertCharInInt(char letter)
 {
     switch(letter)
@@ -35,35 +36,38 @@ int convertCharInInt(char letter)
         case 'y': return 24;
         case 'z': return 25;
         case '-': return 26;
-        default : return 27;
+        case 39 : return 27; //La valeur 29 correspond au code ASCII d'un apostrophe
     }
 }
 
+//Cette fonction permet de générer une phrase de base qui suit le modèle : nom - adjectif - verbe - nom
 void generateBaseSentenceModel1(FILE* filename)
 {
-    t_tree_nom noms = generateTreeNom(filename);
-    t_tree_adject adjectifs = generateTreeAdject(filename);
-    t_tree_vrb verbes = generateTreeVerb(filename);
+    t_tree_nom noms = generateTreeNom(filename); //On génère l'arbre des noms
+    t_tree_adject adjectifs = generateTreeAdject(filename); //On génère l'arbre des adjectifs
+    t_tree_vrb verbes = generateTreeVerb(filename); //On génère l'arbre des verbes
 
-    generateNom(noms);
-    generateAdject(adjectifs);
-    generateVerb(verbes);
-    generateNom(noms);
-    printf("\n");
+    generateNom(noms); //On génère un nom
+    generateAdject(adjectifs); //On génère un adjectif
+    generateVerb(verbes); //On génère un verbe
+    generateNom(noms); //On génère un nom
+    printf("\n"); //On retourne à la ligne
 }
 
+//Cette fonction permet de générer une phrase de base qui suit le modèle : nom - 'qui' - verbe - verbe - nom - adjectif
 void generateBaseSentenceModel2(FILE* filename)
 {
-    t_tree_nom noms = generateTreeNom(filename);
-    t_tree_adject adjectifs = generateTreeAdject(filename);
-    t_tree_vrb verbes = generateTreeVerb(filename);
+    t_tree_nom noms = generateTreeNom(filename); //On génère l'arbre des noms
+    t_tree_adject adjectifs = generateTreeAdject(filename); //On génère l'arbre des adjectifs
+    t_tree_vrb verbes = generateTreeVerb(filename); //On génère l'arbre des verbes
 
-    generateNom(noms);
-    printf("qui ");
-    generateVerb(verbes);
-    generateVerb(verbes);
-    generateNom(noms);
-    generateAdject(adjectifs);
-    printf("\n");
+    generateNom(noms); //On génère un premier nom
+    printf("qui "); //On affiche le pronom relatif qui
+    generateVerb(verbes);//On génère un premier verbe
+    generateVerb(verbes); //On génère un second verbe
+    generateNom(noms); //On génère un second nom
+    generateAdject(adjectifs); //On génère un adjectif
+    printf("\n"); //On retourne à la ligne
 }
+
 
