@@ -70,4 +70,103 @@ void generateBaseSentenceModel2(FILE* filename)
     printf("\n"); //On retourne à la ligne
 }
 
+//Cette fonction permet de démarer le menu
+void fonction_menu()
+{
+    int menu, sous_menu;
+    printf("\n\n###############################################\n");
+    printf("#                                             #\n");
+    printf("#                    MENU                     #\n");
+    printf("#                                             #\n");
+    printf("###############################################\n");
+    printf("\nQuelle fonctionnalite voulez-vous choisir ? \n\n 1. Generer une forme de base \n 2. Generer une phrase de base \n 3. Generer une forme flechie \n 4. Generer une phrase flechie \n 5. Rechercher un mot\n\n ");
+    scanf(" %d", &menu);
+    switch (menu)
+    {
+        case 1:
+            printf("\n###############################################\n");
+            printf("#                                             #\n");
+            printf("#          Generer une forme de Base          #\n");
+            printf("#                                             #\n");
+            printf("###############################################\n\n");
+            printf("Quelle fonctionnalite voulez-vous choisir ? \n\n 1. Generer un nom \n 2. Generer un verbe \n 3. Generer un adjectif\n\n ");
+            scanf(" %d", &sous_menu);
+            switch (sous_menu)
+            {
+                case 1:
+                    generateNom(generateTreeNom((FILE *) "C:\\Users\\PC-Aurelien\\Desktop\\Projet_Generateur_Copy_version\\dictionnaire_non_accentue.txt"));
+                    fonction_menu();
+                    break;
+                case 2 :
+                    generateVerb(generateTreeVerb((FILE *) "C:\\Users\\PC-Aurelien\\Desktop\\Projet_Generateur_Copy_version\\dictionnaire_non_accentue.txt"));
+                    fonction_menu();
+                    break;
+                case 3 :
+                    generateAdject(generateTreeAdject((FILE *) "C:\\Users\\PC-Aurelien\\Desktop\\Projet_Generateur_Copy_version\\dictionnaire_non_accentue.txt"));
+                    fonction_menu();
+                    break;
+                default : printf("Ce numéro n'existe pas !\n\n");
+                fonction_menu();
+            }
+            break;
+
+        case 2:
+            printf("\n################################################\n");
+            printf("#                                              #\n");
+            printf("#          Generer une phrase de Base          #\n");
+            printf("#                                              #\n");
+            printf("################################################\n\n");
+            printf("Quelle fonctionnalite voulez-vous choisir ? \n\n 1. Generer une phrase du type : nom - adjectif - verbe - nom \n 2. Generer une phrase du type : nom - 'qui' - verbe - verbe - nom - adjectif \n\n");
+            scanf(" %d", &sous_menu);
+            switch (sous_menu){
+                case 1 :
+                    generateBaseSentenceModel1((FILE *) "C:\\Users\\PC-Aurelien\\Desktop\\Projet_Generateur_Copy_version\\dictionnaire_non_accentue.txt");
+                    fonction_menu();
+                    break;
+                case 2 :
+                    generateBaseSentenceModel2((FILE *) "C:\\Users\\PC-Aurelien\\Desktop\\Projet_Generateur_Copy_version\\dictionnaire_non_accentue.txt");
+                    fonction_menu();
+                    break;
+                default:
+                    printf("Ce numero n'existe pas !\n\n");
+                    fonction_menu();
+            }
+            break;
+
+        case 3 :
+            printf("\n##################################################\n");
+            printf("#                                                #\n");
+            printf("#          Generer une forme de flechie          #\n");
+            printf("#                                                #\n");
+            printf("##################################################\n\n");
+            printf("Cette fonctionnalite n'est pas disponible !\n\n");
+            fonction_menu();
+            break;
+
+        case 4:
+            printf("\n################################################\n");
+            printf("#                                              #\n");
+            printf("#          Generer une phrase flechie          #\n");
+            printf("#                                              #\n");
+            printf("################################################\n\n");
+            printf("Cette fonctionnalite n'est pas disponible !\n\n");
+            fonction_menu();
+            break;
+
+        case 5:
+            printf("\n##################################################\n");
+            printf("#                                                #\n");
+            printf("#          Rechercher une forme flechie          #\n");
+            printf("#                                                #\n");
+            printf("##################################################\n\n");
+            printf("Cette fonctionnalite n'est pas disponible !\n\n");
+            fonction_menu();
+            break;
+
+        default :
+            printf("Ce numero n'existe pas !\n\n");
+            fonction_menu();
+    }
+}
+
 
