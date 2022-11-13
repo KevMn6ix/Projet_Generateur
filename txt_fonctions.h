@@ -23,4 +23,7 @@ void generateBaseSentenceModel1(FILE* filename);
 //Cette fonction permet de générer une phrase de base qui suit le modèle : nom - 'qui' - verbe - verbe - nom - adjectif
 void generateBaseSentenceModel2(FILE* filename);
 
+//Cette fonction permet de démarrer le menu
+void fonction_menu();
+
 #endif //PROJET_GENERATEUR_TXT_FONCTIONS_H
