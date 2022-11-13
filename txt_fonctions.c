@@ -73,15 +73,17 @@ void generateBaseSentenceModel2(FILE* filename)
 //Cette fonction permet de démarer le menu
 void fonction_menu()
 {
-    int menu, sous_menu;
+    int menu, sous_menu; //On initialise deux variables afin de stocker le menu et le sous menu choisit
     printf("\n\n###############################################\n");
     printf("#                                             #\n");
     printf("#                    MENU                     #\n");
     printf("#                                             #\n");
     printf("###############################################\n");
+    
+    //On demande le menu à exécuter
     printf("\nQuelle fonctionnalite voulez-vous choisir ? \n\n 1. Generer une forme de base \n 2. Generer une phrase de base \n 3. Generer une forme flechie \n 4. Generer une phrase flechie \n 5. Rechercher un mot\n\n ");
-    scanf(" %d", &menu);
-    switch (menu)
+    scanf(" %d", &menu); //On récupère la saisie du numéro de menu
+    switch (menu) 
     {
         case 1:
             printf("\n###############################################\n");
@@ -89,24 +91,30 @@ void fonction_menu()
             printf("#          Generer une forme de Base          #\n");
             printf("#                                             #\n");
             printf("###############################################\n\n");
+
+            //On demande le sous-menu à exécuter
             printf("Quelle fonctionnalite voulez-vous choisir ? \n\n 1. Generer un nom \n 2. Generer un verbe \n 3. Generer un adjectif\n\n ");
-            scanf(" %d", &sous_menu);
-            switch (sous_menu)
+            scanf(" %d", &sous_menu); //On récupère la saisie du numéro de sous-menu
+            switch (sous_menu) //On fait un switch case en fonction de nos sous-menus
             {
                 case 1:
+                    //On génère un nom de base
                     generateNom(generateTreeNom((FILE *) "C:\\Users\\PC-Aurelien\\Desktop\\Projet_Generateur_Copy_version\\dictionnaire_non_accentue.txt"));
-                    fonction_menu();
+                    fonction_menu(); //On retourne au menu principal
                     break;
                 case 2 :
+                    //On génère un verbe de base
                     generateVerb(generateTreeVerb((FILE *) "C:\\Users\\PC-Aurelien\\Desktop\\Projet_Generateur_Copy_version\\dictionnaire_non_accentue.txt"));
-                    fonction_menu();
+                    fonction_menu(); //On retourne au menu principal
                     break;
                 case 3 :
+                    //On génère un adjectif de base
                     generateAdject(generateTreeAdject((FILE *) "C:\\Users\\PC-Aurelien\\Desktop\\Projet_Generateur_Copy_version\\dictionnaire_non_accentue.txt"));
-                    fonction_menu();
+                    fonction_menu(); //On retourne au menu principal
                     break;
-                default : printf("Ce numéro n'existe pas !\n\n");
-                fonction_menu();
+                    
+                default : printf("Ce numéro n'existe pas !\n\n"); 
+                fonction_menu(); //On retourne au menu principal
             }
             break;
 
@@ -116,20 +124,26 @@ void fonction_menu()
             printf("#          Generer une phrase de Base          #\n");
             printf("#                                              #\n");
             printf("################################################\n\n");
+            
+            //On demande le sous-menu à exécuter
             printf("Quelle fonctionnalite voulez-vous choisir ? \n\n 1. Generer une phrase du type : nom - adjectif - verbe - nom \n 2. Generer une phrase du type : nom - 'qui' - verbe - verbe - nom - adjectif \n\n");
-            scanf(" %d", &sous_menu);
-            switch (sous_menu){
+            scanf(" %d", &sous_menu); //On récupère la saisie du numéro de sous-menu
+            switch (sous_menu) //On fait un switch case en fonction de nos sous-menus
+            {
                 case 1 :
+                    //On génère une phrase de base qui suit le modèle : nom - adjectif - verbe - nom
                     generateBaseSentenceModel1((FILE *) "C:\\Users\\PC-Aurelien\\Desktop\\Projet_Generateur_Copy_version\\dictionnaire_non_accentue.txt");
-                    fonction_menu();
+                    fonction_menu(); //On retourne au menu principal
                     break;
                 case 2 :
+                    //On génère une phrase de base qui suit le modèle : nom - 'qui' - verbe - verbe - nom - adjectif
                     generateBaseSentenceModel2((FILE *) "C:\\Users\\PC-Aurelien\\Desktop\\Projet_Generateur_Copy_version\\dictionnaire_non_accentue.txt");
-                    fonction_menu();
+                    fonction_menu(); //On retourne au menu principal
                     break;
                 default:
+                    //On affiche un message d'erreur
                     printf("Ce numero n'existe pas !\n\n");
-                    fonction_menu();
+                    fonction_menu(); //On retourne au menu principal
             }
             break;
 
@@ -140,7 +154,7 @@ void fonction_menu()
             printf("#                                                #\n");
             printf("##################################################\n\n");
             printf("Cette fonctionnalite n'est pas disponible !\n\n");
-            fonction_menu();
+            fonction_menu(); //On retourne au menu principal
             break;
 
         case 4:
@@ -150,7 +164,7 @@ void fonction_menu()
             printf("#                                              #\n");
             printf("################################################\n\n");
             printf("Cette fonctionnalite n'est pas disponible !\n\n");
-            fonction_menu();
+            fonction_menu(); //On retourne au menu principal
             break;
 
         case 5:
@@ -160,13 +174,12 @@ void fonction_menu()
             printf("#                                                #\n");
             printf("##################################################\n\n");
             printf("Cette fonctionnalite n'est pas disponible !\n\n");
-            fonction_menu();
+            fonction_menu(); //On retourne au menu principal
             break;
 
         default :
-            printf("Ce numero n'existe pas !\n\n");
-            fonction_menu();
+            //On affiche un message d'erreur
+            printf("Ce numero n'existe pas !\n\n"); 
+            fonction_menu(); //On retourne au menu principal
     }
 }
-
-
