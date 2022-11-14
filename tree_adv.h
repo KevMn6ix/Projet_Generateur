@@ -1,9 +1,10 @@
 //
-// Created by kevmu on 28/10/2022.
+// Created by Aurelien on 11/14/2022.
 //
 
 #ifndef PROJET_GENERATEUR_TREE_ADV_H
 #define PROJET_GENERATEUR_TREE_ADV_H
+
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -11,43 +12,32 @@
 
 #include "txt_fonctions.h"
 
-typedef struct fl_adv
+//On définit les noeud de notre arbre des adverbes
+typedef struct s_letter_node_adv
 {
-    int nb_formes;
-    char* adv_fl;
-}fl_adv;
+    char lettre;//On initialise une variable permettant de stocker la lettre de notre noeud
+    int end_word; //On initialise un entier permettant de savoir si nous sommes à la fin d'un mot ou non
+    struct s_letter_node_adv* sons[ALPHABET]; //On initialise les fils de notre noeud
 
-typedef struct maillon_l_fl_adv
-{
-    fl_adv value;
-    struct maillon_fl_adv *next;
-} *p_fl_adv;
+}t_letter_node_adv, *p_letter_node_adv;
 
-typedef struct s_std_list_adv
-{
-    p_fl_adv head;
-} l_fl_adv;
-
-typedef struct s_letter_node_vrb_adv
-{
-    char lettre;
-    int nb_formes; // nombre formes_flechies
-    int end_word;
-    l_fl_adv adverbes;
-    struct noeud_adv* sons[ALPHABET];
-
-}t_letter_node_adv, * p_letter_node_adv;
-
+//On définit une structure qui va correspondre à notre arbre d'adverbes
 typedef struct s_tree_adv
 {
     p_letter_node_adv root;
 }t_tree_adv;
 
+//Cette fonction permet de créer un nouveau noeud à l'aide d'une lettre en entrée
 p_letter_node_adv createLetterNodeAdv(char letter);
+
+//Cette fonction permet de créer un arbre d'adverbes vide
 t_tree_adv createEmptyTreeAdv();
 
+//Cette fonction permet de générer un arbre d'adverbes l'aide d'un dictionnaire
 t_tree_adv generateTreeAdv(FILE* filename);
 
+//Cette fonction permet de générer un adverbe à partir d'un arbre d'adverbes
 void generateAdv(t_tree_adv tree);
 
 #endif //PROJET_GENERATEUR_TREE_ADV_H
+
