@@ -14,6 +14,7 @@
 #include "tree_verbe.h"
 #include "tree_nom.h"
 #include "tree_adject.h"
+#include "tree_adv.h"
 
 //Cette variable permet de convertir un caractère en son numéro de l'alphabet à la même manière d'un chiffrement de Cesar
 int convertCharInInt(char letter);
