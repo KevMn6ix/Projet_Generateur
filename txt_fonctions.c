@@ -78,7 +78,9 @@ void generateFlechieSentenceModel1(){
     if(pers == 2) PERSONNE = "P3";
 
     if(GENRE == 0 && NOMBRE == 0) {
-        printf("Le ");
+        int version = rand()%2;
+        if(version == 0) printf("Le ");
+        if(version == 1) printf("Un ");
         flechieSpecialNom("Mas", "SG");
 
         printf(" ");
@@ -89,7 +91,9 @@ void generateFlechieSentenceModel1(){
         flechieSpecialVerb(TEMP, "SG", PERSONNE);
     }
     if(GENRE == 1 && NOMBRE == 0) {
-        printf("La ");
+        int version = rand()%2;
+        if(version == 0) printf("La ");
+        if(version == 1) printf("Une ");
         flechieSpecialNom("Fem", "SG");
 
         printf(" ");
@@ -100,7 +104,9 @@ void generateFlechieSentenceModel1(){
         flechieSpecialVerb(TEMP, "SG", PERSONNE);
     }
     if(GENRE == 0 && NOMBRE == 1) {
-        printf("Les ");
+        int version = rand()%2;
+        if(version == 0) printf("Des ");
+        if(version == 1) printf("Les ");
         flechieSpecialNom("Mas", "PL");
 
         printf(" ");
@@ -111,7 +117,9 @@ void generateFlechieSentenceModel1(){
         flechieSpecialVerb(TEMP, "PL", PERSONNE);
     }
     if(GENRE == 1 && NOMBRE == 1) {
-        printf("Les ");
+        int version = rand()%2;
+        if(version == 0) printf("Des ");
+        if(version == 1) printf("Les ");
         flechieSpecialNom("Fem", "PL");
 
         printf(" ");
@@ -126,19 +134,27 @@ void generateFlechieSentenceModel1(){
     NOMBRE = rand()%2;
 
     if(GENRE == 0 && NOMBRE == 0) {
-        printf(" un ");
+        int version = rand()%2;
+        if(version == 0) printf(" un ");
+        if(version == 1) printf(" le ");
         flechieSpecialNom("Mas", "SG");
     }
     if(GENRE == 1 && NOMBRE == 0) {
-        printf(" une ");
+        int version = rand()%2;
+        if(version == 0) printf(" une ");
+        if(version == 1) printf(" la ");
         flechieSpecialNom("Fem", "SG");
     }
     if(GENRE == 0 && NOMBRE == 1) {
-        printf(" des ");
+        int version = rand()%2;
+        if(version == 0) printf(" des ");
+        if(version == 1) printf(" les ");
         flechieSpecialNom("Mas", "PL");
     }
     if(GENRE == 1 && NOMBRE == 1) {
-        printf(" des ");
+        int version = rand()%2;
+        if(version == 0) printf(" des ");
+        if(version == 1) printf(" les ");
         flechieSpecialNom("Fem", "PL");
     }
 }
@@ -156,7 +172,9 @@ void generateFlechieSentenceModel2(){
     if(pers == 2) PERSONNE = "P3";
 
     if(GENRE == 0 && NOMBRE == 0) {
-        printf("Le ");
+        int version = rand()%2;
+        if(version == 0) printf("Le ");
+        if(version == 1) printf("Un ");
         flechieSpecialNom("Mas", "SG");
         printf(" qui ");
 
@@ -165,7 +183,9 @@ void generateFlechieSentenceModel2(){
         flechieSpecialVerb(TEMP, "SG", PERSONNE);
     }
     if(GENRE == 1 && NOMBRE == 0) {
-        printf("La ");
+        int version = rand()%2;
+        if(version == 0) printf("La ");
+        if(version == 1) printf("Une ");
         flechieSpecialNom("Fem", "SG");
         printf(" qui ");
 
@@ -174,7 +194,9 @@ void generateFlechieSentenceModel2(){
         flechieSpecialVerb(TEMP, "SG", PERSONNE);
     }
     if(GENRE == 0 && NOMBRE == 1) {
-        printf("Les ");
+        int version = rand()%2;
+        if(version == 0) printf("Des ");
+        if(version == 1) printf("Les ");
         flechieSpecialNom("Mas", "PL");
         printf(" qui ");
 
@@ -183,7 +205,9 @@ void generateFlechieSentenceModel2(){
         flechieSpecialVerb(TEMP, "PL", PERSONNE);
     }
     if(GENRE == 1 && NOMBRE == 1) {
-        printf("Les ");
+        int version = rand()%2;
+        if(version == 0) printf("Des ");
+        if(version == 1) printf("Les ");
         flechieSpecialNom("Fem", "PL");
         printf(" qui ");
 
@@ -208,13 +232,17 @@ void generateFlechieSentenceModel2(){
         flechieSpecialAdj("Fem","SG");
     }
     if(GENRE == 0 && NOMBRE == 1) {
-        printf(" des ");
+        int version = rand()%2;
+        if(version == 0) printf(" des ");
+        if(version == 1) printf(" les ");
         flechieSpecialNom("Mas", "PL");
         printf(" ");
         flechieSpecialAdj("Mas","PL");
     }
     if(GENRE == 1 && NOMBRE == 1) {
-        printf(" des ");
+        int version = rand()%2;
+        if(version == 0) printf(" des ");
+        if(version == 1) printf(" les ");
         flechieSpecialNom("Fem", "PL");
         printf(" ");
         flechieSpecialAdj("Fem", "PL");
