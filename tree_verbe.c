@@ -108,21 +108,21 @@ void generateTreeVerb(FILE* filename , p_tree_vrb tree)
             cpt = 0;
             if (temps_verb1 != NULL) {
                 while (temps_verb1[cpt] != '\0') {
-                    temp_node_verb->list[temp_node_verb->nb_flechie].temps1[cpt] = (int) temps_verb1[cpt]; //Pareil pour le temps
+                    temp_node_verb->list[temp_node_verb->nb_flechie].temps1[cpt] = (int) temps_verb1[cpt]; //Pareil pour le temps1
                     cpt++;
                 }
             }
             cpt = 0;
             if (sing_plur1 != NULL) {
                 while (sing_plur1[cpt] != '\0') {
-                    temp_node_verb->list[temp_node_verb->nb_flechie].sing_plur1[cpt] = (int) sing_plur1[cpt]; //Pareil pour le sing_plur
+                    temp_node_verb->list[temp_node_verb->nb_flechie].sing_plur1[cpt] = (int) sing_plur1[cpt]; //Pareil pour le sing_plur1
                     cpt++;
                 }
             }
             cpt = 0;
             if (personne1 != NULL) {
                 while (personne1[cpt] != '\0') {
-                    temp_node_verb->list[temp_node_verb->nb_flechie].pers1[cpt] = (int) personne1[cpt]; //Pareil pour le personne
+                    temp_node_verb->list[temp_node_verb->nb_flechie].pers1[cpt] = (int) personne1[cpt]; //Pareil pour le personne1
                     cpt++;
                 }
             }
@@ -130,21 +130,21 @@ void generateTreeVerb(FILE* filename , p_tree_vrb tree)
             cpt = 0;
             if (temps_verb2 != NULL) {
                 while (temps_verb2[cpt] != '\0') {
-                    temp_node_verb->list[temp_node_verb->nb_flechie].temps2[cpt] = (int) temps_verb2[cpt]; //Pareil pour le temps
+                    temp_node_verb->list[temp_node_verb->nb_flechie].temps2[cpt] = (int) temps_verb2[cpt]; //Pareil pour le temps2
                     cpt++;
                 }
             }
             cpt = 0;
             if (sing_plur2 != NULL) {
                 while (sing_plur2[cpt] != '\0') {
-                    temp_node_verb->list[temp_node_verb->nb_flechie].sing_plur2[cpt] = (int) sing_plur2[cpt]; //Pareil pour le sing_plur
+                    temp_node_verb->list[temp_node_verb->nb_flechie].sing_plur2[cpt] = (int) sing_plur2[cpt]; //Pareil pour le sing_plur2
                     cpt++;
                 }
             }
             cpt = 0;
             if (personne2 != NULL) {
                 while (personne2[cpt] != '\0') {
-                    temp_node_verb->list[temp_node_verb->nb_flechie].pers2[cpt] = (int) personne2[cpt]; //Pareil pour le personne
+                    temp_node_verb->list[temp_node_verb->nb_flechie].pers2[cpt] = (int) personne2[cpt]; //Pareil pour le personne2
                     cpt++;
                 }
             }
@@ -152,21 +152,21 @@ void generateTreeVerb(FILE* filename , p_tree_vrb tree)
             cpt = 0;
             if (temps_verb3 != NULL) {
                 while (temps_verb3[cpt] != '\0') {
-                    temp_node_verb->list[temp_node_verb->nb_flechie].temps3[cpt] = (int) temps_verb3[cpt]; //Pareil pour le temps
+                    temp_node_verb->list[temp_node_verb->nb_flechie].temps3[cpt] = (int) temps_verb3[cpt]; //Pareil pour le temps3
                     cpt++;
                 }
             }
             cpt = 0;
             if (sing_plur3 != NULL) {
                 while (sing_plur3[cpt] != '\0') {
-                    temp_node_verb->list[temp_node_verb->nb_flechie].sing_plur3[cpt] = (int) sing_plur3[cpt]; //Pareil pour le sing_plur
+                    temp_node_verb->list[temp_node_verb->nb_flechie].sing_plur3[cpt] = (int) sing_plur3[cpt]; //Pareil pour le sing_plur3
                     cpt++;
                 }
             }
             cpt = 0;
             if (personne3 != NULL) {
                 while (personne3[cpt] != '\0') {
-                    temp_node_verb->list[temp_node_verb->nb_flechie].pers3[cpt] = (int) personne3[cpt]; //Pareil pour le personne
+                    temp_node_verb->list[temp_node_verb->nb_flechie].pers3[cpt] = (int) personne3[cpt]; //Pareil pour le personne3
                     cpt++;
                 }
             }
@@ -174,21 +174,21 @@ void generateTreeVerb(FILE* filename , p_tree_vrb tree)
             cpt = 0;
             if (temps_verb4 != NULL) {
                 while (temps_verb4[cpt] != '\0') {
-                    temp_node_verb->list[temp_node_verb->nb_flechie].temps4[cpt] = (int) temps_verb4[cpt]; //Pareil pour le temps
+                    temp_node_verb->list[temp_node_verb->nb_flechie].temps4[cpt] = (int) temps_verb4[cpt]; //Pareil pour le temps4
                     cpt++;
                 }
             }
             cpt = 0;
             if (sing_plur4 != NULL) {
                 while (sing_plur4[cpt] != '\0') {
-                    temp_node_verb->list[temp_node_verb->nb_flechie].sing_plur4[cpt] = (int) sing_plur4[cpt]; //Pareil pour le sing_plur
+                    temp_node_verb->list[temp_node_verb->nb_flechie].sing_plur4[cpt] = (int) sing_plur4[cpt]; //Pareil pour le sing_plur4
                     cpt++;
                 }
             }
             cpt = 0;
             if (personne4 != NULL) {
                 while (personne4[cpt] != '\0') {
-                    temp_node_verb->list[temp_node_verb->nb_flechie].pers4[cpt] = (int) personne4[cpt]; //Pareil pour le personne
+                    temp_node_verb->list[temp_node_verb->nb_flechie].pers4[cpt] = (int) personne4[cpt]; //Pareil pour le personne4
                     cpt++;
                 }
             }
@@ -196,21 +196,21 @@ void generateTreeVerb(FILE* filename , p_tree_vrb tree)
             cpt = 0;
             if (temps_verb5 != NULL) {
                 while (temps_verb5[cpt] != '\0') {
-                    temp_node_verb->list[temp_node_verb->nb_flechie].temps5[cpt] = (int) temps_verb5[cpt]; //Pareil pour le temps
+                    temp_node_verb->list[temp_node_verb->nb_flechie].temps5[cpt] = (int) temps_verb5[cpt]; //Pareil pour le temps5
                     cpt++;
                 }
             }
             cpt = 0;
             if (sing_plur5 != NULL) {
                 while (sing_plur5[cpt] != '\0') {
-                    temp_node_verb->list[temp_node_verb->nb_flechie].sing_plur5[cpt] = (int) sing_plur5[cpt]; //Pareil pour le sing_plur
+                    temp_node_verb->list[temp_node_verb->nb_flechie].sing_plur5[cpt] = (int) sing_plur5[cpt]; //Pareil pour le sing_plur5
                     cpt++;
                 }
             }
             cpt = 0;
             if (personne5 != NULL) {
                 while (personne5[cpt] != '\0') {
-                    temp_node_verb->list[temp_node_verb->nb_flechie].pers5[cpt] = (int) personne5[cpt]; //Pareil pour le personne
+                    temp_node_verb->list[temp_node_verb->nb_flechie].pers5[cpt] = (int) personne5[cpt]; //Pareil pour le personne5
                     cpt++;
                 }
             }
@@ -218,21 +218,21 @@ void generateTreeVerb(FILE* filename , p_tree_vrb tree)
             cpt = 0;
             if (temps_verb6 != NULL) {
                 while (temps_verb6[cpt] != '\0') {
-                    temp_node_verb->list[temp_node_verb->nb_flechie].temps6[cpt] = (int) temps_verb6[cpt]; //Pareil pour le temps
+                    temp_node_verb->list[temp_node_verb->nb_flechie].temps6[cpt] = (int) temps_verb6[cpt]; //Pareil pour le temps6
                     cpt++;
                 }
             }
             cpt = 0;
             if (sing_plur6 != NULL) {
                 while (sing_plur6[cpt] != '\0') {
-                    temp_node_verb->list[temp_node_verb->nb_flechie].sing_plur6[cpt] = (int) sing_plur6[cpt]; //Pareil pour le sing_plur
+                    temp_node_verb->list[temp_node_verb->nb_flechie].sing_plur6[cpt] = (int) sing_plur6[cpt]; //Pareil pour le sing_plur6
                     cpt++;
                 }
             }
             cpt = 0;
             if (personne6 != NULL) {
                 while (personne6[cpt] != '\0') {
-                    temp_node_verb->list[temp_node_verb->nb_flechie].pers6[cpt] = (int) personne6[cpt]; //Pareil pour le personne
+                    temp_node_verb->list[temp_node_verb->nb_flechie].pers6[cpt] = (int) personne6[cpt]; //Pareil pour le personne6
                     cpt++;
                 }
             }
@@ -281,7 +281,7 @@ void printVerb(){
         if(temp->list[i].temps1[0] != '\0') {
             cpt = 0;
             while (temp->list[i].temps1[cpt] != '\0') {
-                printf("%c", temp->list[i].temps1[cpt]); //Pareil pour le genre
+                printf("%c", temp->list[i].temps1[cpt]);
                 cpt++;
             }
         }
@@ -289,7 +289,7 @@ void printVerb(){
             printf(" + ");
             cpt = 0;
             while (temp->list[i].sing_plur1[cpt] != '\0') {
-                printf("%c", temp->list[i].sing_plur1[cpt]); //Pareil pour le sing_plur
+                printf("%c", temp->list[i].sing_plur1[cpt]);
                 cpt++;
             }
         }
@@ -297,7 +297,7 @@ void printVerb(){
             printf(" + ");
             cpt = 0;
             while (temp->list[i].pers1[cpt] != '\0') {
-                printf("%c", temp->list[i].pers1[cpt]); //Pareil pour le sing_plur
+                printf("%c", temp->list[i].pers1[cpt]);
                 cpt++;
             }
         }
@@ -306,7 +306,7 @@ void printVerb(){
             printf(" : ");
             cpt = 0;
             while (temp->list[i].temps2[cpt] != '\0') {
-                printf("%c", temp->list[i].temps2[cpt]); //Pareil pour le genre
+                printf("%c", temp->list[i].temps2[cpt]);
                 cpt++;
             }
         }
@@ -314,7 +314,7 @@ void printVerb(){
             printf(" + ");
             cpt = 0;
             while (temp->list[i].sing_plur2[cpt] != '\0') {
-                printf("%c", temp->list[i].sing_plur2[cpt]); //Pareil pour le sing_plur
+                printf("%c", temp->list[i].sing_plur2[cpt]);
                 cpt++;
             }
         }
@@ -322,7 +322,7 @@ void printVerb(){
             printf(" + ");
             cpt = 0;
             while (temp->list[i].pers2[cpt] != '\0') {
-                printf("%c", temp->list[i].pers2[cpt]); //Pareil pour le sing_plur
+                printf("%c", temp->list[i].pers2[cpt]);
                 cpt++;
             }
         }
@@ -331,7 +331,7 @@ void printVerb(){
             printf(" : ");
             cpt = 0;
             while (temp->list[i].temps3[cpt] != '\0') {
-                printf("%c", temp->list[i].temps3[cpt]); //Pareil pour le genre
+                printf("%c", temp->list[i].temps3[cpt]);
                 cpt++;
             }
         }
@@ -339,7 +339,7 @@ void printVerb(){
             printf(" + ");
             cpt = 0;
             while (temp->list[i].sing_plur3[cpt] != '\0') {
-                printf("%c", temp->list[i].sing_plur3[cpt]); //Pareil pour le sing_plur
+                printf("%c", temp->list[i].sing_plur3[cpt]);
                 cpt++;
             }
         }
@@ -347,7 +347,7 @@ void printVerb(){
             printf(" + ");
             cpt = 0;
             while (temp->list[i].pers3[cpt] != '\0') {
-                printf("%c", temp->list[i].pers3[cpt]); //Pareil pour le sing_plur
+                printf("%c", temp->list[i].pers3[cpt]);
                 cpt++;
             }
         }
@@ -356,7 +356,7 @@ void printVerb(){
             printf(" : ");
             cpt = 0;
             while (temp->list[i].temps4[cpt] != '\0') {
-                printf("%c", temp->list[i].temps4[cpt]); //Pareil pour le genre
+                printf("%c", temp->list[i].temps4[cpt]);
                 cpt++;
             }
         }
@@ -364,7 +364,7 @@ void printVerb(){
             printf(" + ");
             cpt = 0;
             while (temp->list[i].sing_plur4[cpt] != '\0') {
-                printf("%c", temp->list[i].sing_plur4[cpt]); //Pareil pour le sing_plur
+                printf("%c", temp->list[i].sing_plur4[cpt]);
                 cpt++;
             }
         }
@@ -372,7 +372,7 @@ void printVerb(){
             printf(" + ");
             cpt = 0;
             while (temp->list[i].pers4[cpt] != '\0') {
-                printf("%c", temp->list[i].pers4[cpt]); //Pareil pour le sing_plur
+                printf("%c", temp->list[i].pers4[cpt]);
                 cpt++;
             }
         }
@@ -381,7 +381,7 @@ void printVerb(){
             printf(" : ");
             cpt = 0;
             while (temp->list[i].temps5[cpt] != '\0') {
-                printf("%c", temp->list[i].temps5[cpt]); //Pareil pour le genre
+                printf("%c", temp->list[i].temps5[cpt]);
                 cpt++;
             }
         }
@@ -389,7 +389,7 @@ void printVerb(){
             printf(" + ");
             cpt = 0;
             while (temp->list[i].sing_plur5[cpt] != '\0') {
-                printf("%c", temp->list[i].sing_plur5[cpt]); //Pareil pour le sing_plur
+                printf("%c", temp->list[i].sing_plur5[cpt]);
                 cpt++;
             }
         }
@@ -397,7 +397,7 @@ void printVerb(){
             printf(" + ");
             cpt = 0;
             while (temp->list[i].pers5[cpt] != '\0') {
-                printf("%c", temp->list[i].pers5[cpt]); //Pareil pour le sing_plur
+                printf("%c", temp->list[i].pers5[cpt]);
                 cpt++;
             }
         }
@@ -406,7 +406,7 @@ void printVerb(){
             printf(" : ");
             cpt = 0;
             while (temp->list[i].temps6[cpt] != '\0') {
-                printf("%c", temp->list[i].temps6[cpt]); //Pareil pour le genre
+                printf("%c", temp->list[i].temps6[cpt]);
                 cpt++;
             }
         }
@@ -414,7 +414,7 @@ void printVerb(){
             printf(" + ");
             cpt = 0;
             while (temp->list[i].sing_plur6[cpt] != '\0') {
-                printf("%c", temp->list[i].sing_plur6[cpt]); //Pareil pour le sing_plur
+                printf("%c", temp->list[i].sing_plur6[cpt]);
                 cpt++;
             }
         }
@@ -422,7 +422,7 @@ void printVerb(){
             printf(" + ");
             cpt = 0;
             while (temp->list[i].pers6[cpt] != '\0') {
-                printf("%c", temp->list[i].pers6[cpt]); //Pareil pour le sing_plur
+                printf("%c", temp->list[i].pers6[cpt]);
                 cpt++;
             }
         }
