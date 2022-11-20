@@ -1,7 +1,9 @@
 //
-// Created by Aurelien on 11/2/2022.
+// Created by dquel on 13/11/2022.
 //
 
+#include <stdlib.h>
+#include <stdio.h>
 #include "txt_fonctions.h"
 
 //Cette variable permet de convertir un caractère en son numéro de l'alphabet à la même manière d'un chiffrement de Cesar
@@ -43,31 +45,23 @@ int convertCharInInt(char letter)
 //Cette fonction permet de générer une phrase de base qui suit le modèle : nom - adjectif - verbe - nom
 void generateBaseSentenceModel1(FILE* filename)
 {
-    t_tree_nom noms = generateTreeNom(filename); //On génère l'arbre des noms
-    t_tree_adject adjectifs = generateTreeAdject(filename); //On génère l'arbre des adjectifs
-    t_tree_vrb verbes = generateTreeVerb(filename); //On génère l'arbre des verbes
-
-    generateNom(noms); //On génère un nom
-    generateAdject(adjectifs); //On génère un adjectif
-    generateVerb(verbes); //On génère un verbe
-    generateNom(noms); //On génère un nom
-    fonction_menu(); //On retourne au menu
+    generateNom(); //On génère un nom
+    generateAdject(); //On génère un adjectif
+    generateVerb(); //On génère un verbe
+    generateNom(); //On génère un nom
+    printf("\n"); //On retourne à la ligne
 }
 
 //Cette fonction permet de générer une phrase de base qui suit le modèle : nom - 'qui' - verbe - verbe - nom - adjectif
 void generateBaseSentenceModel2(FILE* filename)
 {
-    t_tree_nom noms = generateTreeNom(filename); //On génère l'arbre des noms
-    t_tree_adject adjectifs = generateTreeAdject(filename); //On génère l'arbre des adjectifs
-    t_tree_vrb verbes = generateTreeVerb(filename); //On génère l'arbre des verbes
-
-    generateNom(noms); //On génère un premier nom
+    generateNom(); //On génère un premier nom
     printf("qui "); //On affiche le pronom relatif qui
-    generateVerb(verbes);//On génère un premier verbe
-    generateVerb(verbes); //On génère un second verbe
-    generateNom(noms); //On génère un second nom
-    generateAdject(adjectifs); //On génère un adjectif
-    fonction_menu(); //On retourne au menu
+    generateVerb();//On génère un premier verbe
+    generateVerb(); //On génère un second verbe
+    generateNom(); //On génère un second nom
+    generateAdject(); //On génère un adjectif
+    printf("\n"); //On retourne à la ligne
 }
 
 //Cette fonction permet de démarer le menu
@@ -81,7 +75,7 @@ void fonction_menu()
     printf("###############################################\n");
 
     //On demande le menu à exécuter
-    printf("\nQuelle fonctionnalite voulez-vous choisir ? \n\n 1. Generer une forme de base \n 2. Generer une phrase de base \n 3. Rechercher une forme de base \n 4. Generer une forme flechie \n 5. Generer une phrase flechie \n 6. Rechercher un mot\n\n ");
+    printf("\nQuelle fonctionnalite voulez-vous choisir ? \n\n 1. Generer une forme de base \n 2. Generer une phrase de base \n 3. Generer une forme flechie \n 4. Generer une phrase flechie \n 5. Rechercher un mot\n\n ");
     scanf(" %d", &menu); //On récupère la saisie du numéro de menu
     switch (menu)
     {
@@ -99,27 +93,26 @@ void fonction_menu()
             {
                 case 1:
                     //On génère un nom de base
-                    generateNom(generateTreeNom((FILE *) "C:\\Users\\PC-Aurelien\\Desktop\\Projet_Generateur_Copy_version\\dictionnaire_non_accentue.txt"));
+                    generateNom();
                     fonction_menu(); //On retourne au menu principal
                     break;
                 case 2 :
                     //On génère un verbe de base
-                    generateVerb(generateTreeVerb((FILE *) "C:\\Users\\PC-Aurelien\\Desktop\\Projet_Generateur_Copy_version\\dictionnaire_non_accentue.txt"));
+                    generateVerb();
                     fonction_menu(); //On retourne au menu principal
                     break;
                 case 3 :
                     //On génère un adjectif de base
-                    generateAdject(generateTreeAdject((FILE *) "C:\\Users\\PC-Aurelien\\Desktop\\Projet_Generateur_Copy_version\\dictionnaire_non_accentue.txt"));
+                    generateAdject();
                     fonction_menu(); //On retourne au menu principal
                     break;
                 case 4 :
                     //On génère un adverbe de base
-                    generateAdv(generateTreeAdv((FILE *) "C:\\Users\\PC-Aurelien\\Desktop\\Projet_Generateur_Copy_version\\dictionnaire_non_accentue.txt"));
-                    fonction_menu(); //On retourne au menu principal
-                    break;
+                    generateAdv();
+                    fonction_menu();
 
                 default : printf("Ce numéro n'existe pas !\n\n");
-                fonction_menu(); //On retourne au menu principal
+                    fonction_menu(); //On retourne au menu principal
             }
             break;
 
@@ -137,12 +130,12 @@ void fonction_menu()
             {
                 case 1 :
                     //On génère une phrase de base qui suit le modèle : nom - adjectif - verbe - nom
-                    generateBaseSentenceModel1((FILE *) "C:\\Users\\PC-Aurelien\\Desktop\\Projet_Generateur_Copy_version\\dictionnaire_non_accentue.txt");
+                    generateBaseSentenceModel1((FILE *) "C:\\Users\\dquel\\OneDrive\\Bureau\\Fuchsia\\L2\\C\\dictionnaire_non_accentue.txt");
                     fonction_menu(); //On retourne au menu principal
                     break;
                 case 2 :
                     //On génère une phrase de base qui suit le modèle : nom - 'qui' - verbe - verbe - nom - adjectif
-                    generateBaseSentenceModel2((FILE *) "C:\\Users\\PC-Aurelien\\Desktop\\Projet_Generateur_Copy_version\\dictionnaire_non_accentue.txt");
+                    generateBaseSentenceModel2((FILE *) "C:\\Users\\dquel\\OneDrive\\Bureau\\Fuchsia\\L2\\C\\dictionnaire_non_accentue.txt");
                     fonction_menu(); //On retourne au menu principal
                     break;
                 default:
@@ -155,24 +148,14 @@ void fonction_menu()
         case 3 :
             printf("\n##################################################\n");
             printf("#                                                #\n");
-            printf("#          Rechercher une forme de base          #\n");
+            printf("#          Generer une forme de flechie          #\n");
             printf("#                                                #\n");
             printf("##################################################\n\n");
             printf("Cette fonctionnalite n'est pas disponible !\n\n");
             fonction_menu(); //On retourne au menu principal
             break;
 
-        case 4 :
-            printf("\n##################################################\n");
-            printf("#                                                #\n");
-            printf("#            Generer une forme flechie           #\n");
-            printf("#                                                #\n");
-            printf("##################################################\n\n");
-            printf("Cette fonctionnalite n'est pas disponible !\n\n");
-            fonction_menu(); //On retourne au menu principal
-            break;
-
-        case 5:
+        case 4:
             printf("\n################################################\n");
             printf("#                                              #\n");
             printf("#          Generer une phrase flechie          #\n");
@@ -182,10 +165,10 @@ void fonction_menu()
             fonction_menu(); //On retourne au menu principal
             break;
 
-        case 6:
+        case 5:
             printf("\n##################################################\n");
             printf("#                                                #\n");
-            printf("#                Rechercher un mot               #\n");
+            printf("#          Rechercher une forme flechie          #\n");
             printf("#                                                #\n");
             printf("##################################################\n\n");
             printf("Cette fonctionnalite n'est pas disponible !\n\n");

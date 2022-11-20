@@ -1,11 +1,12 @@
 //
-// Created by Aurelien on 11/2/2022.
+// Created by dquel on 13/11/2022.
 //
 
 #ifndef PROJET_GENERATEUR_TXT_FONCTIONS_H
 #define PROJET_GENERATEUR_TXT_FONCTIONS_H
 
 #define ALPHABET 28
+#define NotreFichier "C:\\Users\\dquel\\OneDrive\\Bureau\\Fuchsia\\L2\\C\\dictionnaire_non_accentue.txt"
 
 #include <stdlib.h>
 #include <stdio.h>
