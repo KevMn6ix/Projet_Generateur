@@ -48,7 +48,7 @@ void generateTreeAdject(FILE* filename, p_tree_adject);
 
 //Cette fonction permet de générer un adjectif de base à partir d'un arbre d'adjectifs
 void generateAdject();
-
+void generateFlechieAdject();
 void printAdject();
 
 #endif //PROJET_GENERATEUR_TREE_ADJECT_H

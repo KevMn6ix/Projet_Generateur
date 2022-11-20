@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "txt_fonctions.h"
+#include "tree_adv.h"
 
 //Cette variable permet de convertir un caractère en son numéro de l'alphabet à la même manière d'un chiffrement de Cesar
 int convertCharInInt(char letter)
@@ -130,12 +131,12 @@ void fonction_menu()
             {
                 case 1 :
                     //On génère une phrase de base qui suit le modèle : nom - adjectif - verbe - nom
-                    generateBaseSentenceModel1((FILE *) "C:\\Users\\dquel\\OneDrive\\Bureau\\Fuchsia\\L2\\C\\dictionnaire_non_accentue.txt");
+                    generateBaseSentenceModel1((FILE *) NotreFichier);
                     fonction_menu(); //On retourne au menu principal
                     break;
                 case 2 :
                     //On génère une phrase de base qui suit le modèle : nom - 'qui' - verbe - verbe - nom - adjectif
-                    generateBaseSentenceModel2((FILE *) "C:\\Users\\dquel\\OneDrive\\Bureau\\Fuchsia\\L2\\C\\dictionnaire_non_accentue.txt");
+                    generateBaseSentenceModel2((FILE *) NotreFichier);
                     fonction_menu(); //On retourne au menu principal
                     break;
                 default:
@@ -151,8 +152,33 @@ void fonction_menu()
             printf("#          Generer une forme de flechie          #\n");
             printf("#                                                #\n");
             printf("##################################################\n\n");
-            printf("Cette fonctionnalite n'est pas disponible !\n\n");
-            fonction_menu(); //On retourne au menu principal
+            printf("Quelle fonctionnalite voulez-vous choisir ? \n\n 1. Generer un nom \n 2. Generer un verbe \n 3. Generer un adjectif \n 4. Generer un adverbe \n\n ");
+            scanf(" %d", &sous_menu); //On récupère la saisie du numéro de sous-menu
+            switch (sous_menu) //On fait un switch case en fonction de nos sous-menus
+            {
+                case 1:
+                    //On génère un nom de base
+                    generateFlechieNom();
+                    fonction_menu(); //On retourne au menu principal
+                    break;
+                case 2 :
+                    //On génère un verbe de base
+                    generateFlechieVerb();
+                    fonction_menu(); //On retourne au menu principal
+                    break;
+                case 3 :
+                    //On génère un adjectif de base
+                    generateFlechieAdject();
+                    fonction_menu(); //On retourne au menu principal
+                    break;
+                case 4 :
+                    //On génère un adverbe de base
+                    generateFlechieAdv();
+                    fonction_menu();
+
+                default : printf("Ce numéro n'existe pas !\n\n");
+                    fonction_menu(); //On retourne au menu principal
+            }
             break;
 
         case 4:

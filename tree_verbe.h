@@ -65,6 +65,6 @@ void generateTreeVerb(FILE* filename ,p_tree_vrb);
 
 //Cette fonction permet de générer un verbe de base à partir d'un arbre de verbes
 void generateVerb();
-
+void generateFlechieVerb();
 void printVerb();
 #endif //PROJET_GENERATEUR_TREE_VERBE_H

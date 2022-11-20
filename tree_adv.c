@@ -156,4 +156,30 @@ void printAdv (){
         i++;
     }
 }
+void generateFlechieAdv() {
+    t_tree_adv tree = createEmptyTreeAdv();
+    generateTreeAdv((FILE *) NotreFichier, &tree);
+    p_letter_node_adv temp = tree.root; //On initialise un pointeur afin de parcourir notre arbre
+    int n, deux_tour = 0, limite = 0, end = 2; //On initialise un entier afin de générer un nombre aléatoire entre 0 et 26
 
+    while ((deux_tour < 2) || (end > 1)) //Tant que nous sommes à la fin d'un nom
+    {
+        n = rand() % 28; //On génère un nombre aléatoire entre 0 et 27
+        limite++;
+        if (limite > 1000) break; //Si jamais on est bloqué trop longtemps : on recommence
+        if (temp->sons[n] != NULL) //Si le noeud que nous avons choisi aléatoirement n'est pas NULL
+        {
+            temp = temp->sons[n]; //Alors on entre dans ce noeud
+            deux_tour++;
+            limite = 0;
+        }
+        if (temp->end_word == 1)
+            end = rand() % 10; // Si on arrive à la fin d'un mot : il y a une chance qu'on s'arrete là
+    }
+    int i = rand() %temp->nb_flechie, cpt;
+    cpt = 0;
+    while(temp->list[i].nom[cpt] != '\0'){
+        printf("%c", temp->list[i].nom[cpt]); // On reconvertie le tableau d'entier en tableau de caractère pour le nom
+        cpt++;
+    }
+}

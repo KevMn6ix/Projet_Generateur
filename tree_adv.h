@@ -47,7 +47,7 @@ void generateTreeAdv(FILE* filename, p_tree_adv);
 
 //Cette fonction permet de générer un adv de base à partir d'un arbre de adv
 void generateAdv();
-
+void generateFlechieAdv();
 //Elle affiche la forme de base plus tous ses fléchies
 void printfAdv();
 
