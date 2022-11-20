@@ -44,7 +44,7 @@ typedef struct s_letter_node_vrb
     char lettre; //On initialise une variable permettant de stocker la lettre de notre noeud
     int nb_flechie; //On initialise une variable qui va stocker le nombre de formes fléchies du nom de base
     int end_word; //On initialise un entier permettant de savoir si nous sommes à la fin d'un mot ou non
-    t_cell_vrb list[100]; //On initialise la liste chaînée de nos formes fléchies
+    t_cell_vrb list[200]; //On initialise la liste chaînée de nos formes fléchies
     struct s_letter_node_vrb* sons[ALPHABET]; //On initialise les fils de notre noeud
 
 }t_letter_node_vrb, *p_letter_node_vrb;
@@ -66,5 +66,6 @@ void generateTreeVerb(FILE* filename ,p_tree_vrb);
 //Cette fonction permet de générer un verbe de base à partir d'un arbre de verbes
 void generateVerb();
 void generateFlechieVerb();
+void flechieSpecialVerb(char* , char* , char* );
 void printVerb();
 #endif //PROJET_GENERATEUR_TREE_VERBE_H

@@ -21,10 +21,12 @@
 int convertCharInInt(char letter);
 
 //Cette fonction permet de générer une phrase de base qui suit le modèle : nom - adjectif - verbe - nom
-void generateBaseSentenceModel1(FILE* filename);
+void generateBaseSentenceModel1();
 //Cette fonction permet de générer une phrase de base qui suit le modèle : nom - 'qui' - verbe - verbe - nom - adjectif
-void generateBaseSentenceModel2(FILE* filename);
+void generateBaseSentenceModel2();
 
+void generateFlechieSentenceModel1();
+void generateFlechieSentenceModel2();
 //Cette fonction permet de démarrer le menu
 void fonction_menu();
 

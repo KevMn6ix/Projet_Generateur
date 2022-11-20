@@ -38,7 +38,6 @@ void generateTreeVerb(FILE* filename , p_tree_vrb tree)
 
     FILE *file = fopen(filename, "r"); //On ouvre notre dictionnaire
     char texte[256]; //On initialise une variable qui va récupérer chaque ligne de notre dictionnaire
-
     while (fgets(texte, 256, file) != NULL) //On récupère les lignes de notre fichier dans la variable texte
     {
         char ligne[256]; //On initialise une variable afin de copier la ligne que nous lisons dans celle-ci
@@ -629,6 +628,211 @@ void generateFlechieVerb() {
         while (temp->list[i].pers6[cpt] != '\0') {
             printf("%c", temp->list[i].pers6[cpt]);
             cpt++;
+        }
+    }
+}
+
+void flechieSpecialVerb(char* temps, char* sing_plur, char* personne){
+    t_tree_vrb tree = createEmptyTreeVerb();
+    generateTreeVerb((FILE *) NotreFichier, &tree);
+    p_letter_node_vrb temp;
+    int STOP = 1;
+    int n, deux_tour = 0, limite = 0, end = 2;
+    while(STOP) {
+        temp = tree.root; //On initialise un pointeur afin de parcourir notre arbre
+        deux_tour = 0, limite = 0, end = 2; //On initialise un entier afin de générer un nombre aléatoire entre 0 et 26
+
+        while ((deux_tour < 2) || (end > 1)) //Tant que nous sommes à la fin d'un nom
+        {
+            n = rand() % 28; //On génère un nombre aléatoire entre 0 et 27
+            limite++;
+            if (limite > 1000) break; //Si jamais on est bloqué trop longtemps : on recommence
+            if (temp->sons[n] != NULL) //Si le noeud que nous avons choisi aléatoirement n'est pas NULL
+            {
+                temp = temp->sons[n]; //Alors on entre dans ce noeud
+                deux_tour++;
+                limite = 0;
+            }
+            if (temp->end_word == 1)
+                end = rand() % 10; // Si on arrive à la fin d'un mot : il y a une chance qu'on s'arrete là
+        }
+        int i = 0,cpt = 0,trouver = 1;
+        while(1) {
+            i = rand() % temp->nb_flechie;
+            if((((temp->list[i].temps1[0] != '\0' && temp->list[i].temps1[0] == temps[0])&&(temp->list[i].temps1[1] != '\0' && temp->list[i].temps1[1] == temps[1])&&(temp->list[i].temps1[2] != '\0' && temp->list[i].temps1[2] == temps[2]))&&(temp->list[i].sing_plur1[0] != '\0' && temp->list[i].sing_plur1[0] == sing_plur[0])&&(temp->list[i].pers1[0] != '\0' && temp->list[i].pers1[1] == personne[1]))
+               ||(((temp->list[i].temps2[0] != '\0' && temp->list[i].temps2[0] == temps[0])&&(temp->list[i].temps2[1] != '\0' && temp->list[i].temps2[1] == temps[1])&&(temp->list[i].temps2[2] != '\0' && temp->list[i].temps2[2] == temps[2]))&&(temp->list[i].sing_plur2[0] != '\0' && temp->list[i].sing_plur2[0] == sing_plur[0])&&(temp->list[i].pers2[0] != '\0' && temp->list[i].pers2[1] == personne[1]))
+               ||(((temp->list[i].temps3[0] != '\0' && temp->list[i].temps3[0] == temps[0])&&(temp->list[i].temps3[1] != '\0' && temp->list[i].temps3[1] == temps[1])&&(temp->list[i].temps3[2] != '\0' && temp->list[i].temps3[2] == temps[2]))&&(temp->list[i].sing_plur3[0] != '\0' && temp->list[i].sing_plur3[0] == sing_plur[0])&&(temp->list[i].pers3[0] != '\0' && temp->list[i].pers3[1] == personne[1]))
+               ||(((temp->list[i].temps4[0] != '\0' && temp->list[i].temps4[0] == temps[0])&&(temp->list[i].temps4[1] != '\0' && temp->list[i].temps4[1] == temps[1])&&(temp->list[i].temps4[2] != '\0' && temp->list[i].temps4[2] == temps[2]))&&(temp->list[i].sing_plur4[0] != '\0' && temp->list[i].sing_plur4[0] == sing_plur[0])&&(temp->list[i].pers4[0] != '\0' && temp->list[i].pers4[1] == personne[1]))
+               ||(((temp->list[i].temps5[0] != '\0' && temp->list[i].temps5[0] == temps[0])&&(temp->list[i].temps5[1] != '\0' && temp->list[i].temps5[1] == temps[1])&&(temp->list[i].temps5[2] != '\0' && temp->list[i].temps5[2] == temps[2]))&&(temp->list[i].sing_plur5[0] != '\0' && temp->list[i].sing_plur5[0] == sing_plur[0])&&(temp->list[i].pers5[0] != '\0' && temp->list[i].pers5[1] == personne[1]))
+               ||(((temp->list[i].temps6[0] != '\0' && temp->list[i].temps6[0] == temps[0])&&(temp->list[i].temps6[1] != '\0' && temp->list[i].temps6[1] == temps[1])&&(temp->list[i].temps6[2] != '\0' && temp->list[i].temps6[2] == temps[2]))&&(temp->list[i].sing_plur6[0] != '\0' && temp->list[i].sing_plur6[0] == sing_plur[0])&&(temp->list[i].pers6[0] != '\0' && temp->list[i].pers6[1] == personne[1]))){
+                trouver = 1;
+                break;
+            }
+            cpt ++;
+            if(cpt > 100){
+                trouver = 0;
+                break;
+            }
+        }
+        if(trouver && temp->list[i].forme_conj[0] != '\0') {
+            cpt = 0;
+            while (temp->list[i].forme_conj[cpt] != '\0') {
+                printf("%c",
+                       temp->list[i].forme_conj[cpt]); // On reconvertie le tableau d'entier en tableau de caractère pour le nom
+                cpt++;
+            }
+            /**
+            printf(" : ");
+            if(temp->list[i].temps1[0] != '\0') {
+                cpt = 0;
+                while (temp->list[i].temps1[cpt] != '\0') {
+                    printf("%c", temp->list[i].temps1[cpt]);
+                    cpt++;
+                }
+            }
+            if(temp->list[i].sing_plur1[0] != '\0') {
+                printf(" + ");
+                cpt = 0;
+                while (temp->list[i].sing_plur1[cpt] != '\0') {
+                    printf("%c", temp->list[i].sing_plur1[cpt]);
+                    cpt++;
+                }
+            }
+            if(temp->list[i].pers1[0] != '\0') {
+                printf(" + ");
+                cpt = 0;
+                while (temp->list[i].pers1[cpt] != '\0') {
+                    printf("%c", temp->list[i].pers1[cpt]);
+                    cpt++;
+                }
+            }
+
+            if(temp->list[i].temps2[0] != '\0') {
+                printf(" : ");
+                cpt = 0;
+                while (temp->list[i].temps2[cpt] != '\0') {
+                    printf("%c", temp->list[i].temps2[cpt]);
+                    cpt++;
+                }
+            }
+            if(temp->list[i].sing_plur2[0] != '\0') {
+                printf(" + ");
+                cpt = 0;
+                while (temp->list[i].sing_plur2[cpt] != '\0') {
+                    printf("%c", temp->list[i].sing_plur2[cpt]);
+                    cpt++;
+                }
+            }
+            if(temp->list[i].pers2[0] != '\0') {
+                printf(" + ");
+                cpt = 0;
+                while (temp->list[i].pers2[cpt] != '\0') {
+                    printf("%c", temp->list[i].pers2[cpt]);
+                    cpt++;
+                }
+            }
+
+            if(temp->list[i].temps3[0] != '\0') {
+                printf(" : ");
+                cpt = 0;
+                while (temp->list[i].temps3[cpt] != '\0') {
+                    printf("%c", temp->list[i].temps3[cpt]);
+                    cpt++;
+                }
+            }
+            if(temp->list[i].sing_plur3[0] != '\0') {
+                printf(" + ");
+                cpt = 0;
+                while (temp->list[i].sing_plur3[cpt] != '\0') {
+                    printf("%c", temp->list[i].sing_plur3[cpt]);
+                    cpt++;
+                }
+            }
+            if(temp->list[i].pers3[0] != '\0') {
+                printf(" + ");
+                cpt = 0;
+                while (temp->list[i].pers3[cpt] != '\0') {
+                    printf("%c", temp->list[i].pers3[cpt]);
+                    cpt++;
+                }
+            }
+
+            if(temp->list[i].temps4[0] != '\0') {
+                printf(" : ");
+                cpt = 0;
+                while (temp->list[i].temps4[cpt] != '\0') {
+                    printf("%c", temp->list[i].temps4[cpt]);
+                    cpt++;
+                }
+            }
+            if(temp->list[i].sing_plur4[0] != '\0') {
+                printf(" + ");
+                cpt = 0;
+                while (temp->list[i].sing_plur4[cpt] != '\0') {
+                    printf("%c", temp->list[i].sing_plur4[cpt]);
+                    cpt++;
+                }
+            }
+            if(temp->list[i].pers4[0] != '\0') {
+                printf(" + ");
+                cpt = 0;
+                while (temp->list[i].pers4[cpt] != '\0') {
+                    printf("%c", temp->list[i].pers4[cpt]);
+                    cpt++;
+                }
+            }
+
+            if(temp->list[i].temps5[0] != '\0') {
+                printf(" : ");
+                cpt = 0;
+                while (temp->list[i].temps5[cpt] != '\0') {
+                    printf("%c", temp->list[i].temps5[cpt]);
+                    cpt++;
+                }
+            }
+            if(temp->list[i].sing_plur5[0] != '\0') {
+                printf(" + ");
+                cpt = 0;
+                while (temp->list[i].sing_plur5[cpt] != '\0') {
+                    printf("%c", temp->list[i].sing_plur5[cpt]);
+                    cpt++;
+                }
+            }
+            if(temp->list[i].pers5[0] != '\0') {
+                printf(" + ");
+                cpt = 0;
+                while (temp->list[i].pers5[cpt] != '\0') {
+                    printf("%c", temp->list[i].pers5[cpt]);
+                    cpt++;
+                }
+            }
+
+            if(temp->list[i].temps6[0] != '\0') {
+                printf(" : ");
+                cpt = 0;
+                while (temp->list[i].temps6[cpt] != '\0') {
+                    printf("%c", temp->list[i].temps6[cpt]);
+                    cpt++;
+                }
+            }
+            if(temp->list[i].sing_plur6[0] != '\0') {
+                printf(" + ");
+                cpt = 0;
+                while (temp->list[i].sing_plur6[cpt] != '\0') {
+                    printf("%c", temp->list[i].sing_plur6[cpt]);
+                    cpt++;
+                }
+            }
+            if(temp->list[i].pers6[0] != '\0') {
+                printf(" + ");
+                cpt = 0;
+                while (temp->list[i].pers6[cpt] != '\0') {
+                    printf("%c", temp->list[i].pers6[cpt]);
+                    cpt++;
+                }
+            }
+             **/
+            STOP = 0;
         }
     }
 }

@@ -50,6 +50,7 @@ void generateTreeNom(FILE* filename, p_tree_nom);
 //Cette fonction permet de générer un nom de base à partir d'un arbre de noms
 void generateNom();
 void generateFlechieNom();
+void flechieSpecialNom(char*, char*);
 //Elle affiche la forme de base plus tous ses fléchies
 void printfNom();
 

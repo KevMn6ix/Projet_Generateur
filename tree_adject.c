@@ -217,3 +217,62 @@ void generateFlechieAdject() {
         cpt++;
     }
 }
+
+void flechieSpecialAdj(char* genre, char* sing_plur){
+    t_tree_adject tree = createEmptyTreeAdject();
+    generateTreeAdject((FILE *) NotreFichier, &tree);
+    p_letter_node_adject temp;
+    int STOP = 1;
+    int n, deux_tour = 0, limite = 0, end = 2;
+    while(STOP) {
+        temp = tree.root; //On initialise un pointeur afin de parcourir notre arbre
+        deux_tour = 0, limite = 0, end = 2; //On initialise un entier afin de générer un nombre aléatoire entre 0 et 26
+
+        while ((deux_tour < 2) || (end > 1)) //Tant que nous sommes à la fin d'un nom
+        {
+            n = rand() % 28; //On génère un nombre aléatoire entre 0 et 27
+            limite++;
+            if (limite > 1000) break; //Si jamais on est bloqué trop longtemps : on recommence
+            if (temp->sons[n] != NULL) //Si le noeud que nous avons choisi aléatoirement n'est pas NULL
+            {
+                temp = temp->sons[n]; //Alors on entre dans ce noeud
+                deux_tour++;
+                limite = 0;
+            }
+            if (temp->end_word == 1)
+                end = rand() % 10; // Si on arrive à la fin d'un mot : il y a une chance qu'on s'arrete là
+        }
+        int i = 0,cpt = 0,trouver = 1;
+        while((temp->list[i].genre[0] != '\0' && temp->list[i].genre[0] != genre[0])||(temp->list[i].sing_plur[0] != '\0' && temp->list[i].sing_plur[0] != sing_plur[0])) {
+            i = rand() % temp->nb_flechie;
+            cpt ++;
+            if(cpt > 100){
+                trouver = 0;
+                break;
+            }
+        }
+        if(trouver && temp->list[i].genre[0] != '\0' && temp->list[i].sing_plur[0] != '\0') {
+            cpt = 0;
+            while (temp->list[i].adjectif[cpt] != '\0') {
+                printf("%c",
+                       temp->list[i].adjectif[cpt]); // On reconvertie le tableau d'entier en tableau de caractère pour le nom
+                cpt++;
+            }
+            /**
+            printf(" : ");
+            cpt = 0;
+            while(temp->list[i].genre[cpt] != '\0'){
+                printf("%c", temp->list[i].genre[cpt]); //Pareil pour le genre
+                cpt++;
+            }
+            printf(" + ");
+            cpt = 0;
+            while(temp->list[i].sing_plur[cpt] != '\0'){
+                printf("%c", temp->list[i].sing_plur[cpt]); //Pareil pour le sing_plur
+                cpt++;
+            }
+            **/
+            STOP = 0;
+        }
+    }
+}

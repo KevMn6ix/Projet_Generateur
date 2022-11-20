@@ -44,7 +44,7 @@ int convertCharInInt(char letter)
 }
 
 //Cette fonction permet de générer une phrase de base qui suit le modèle : nom - adjectif - verbe - nom
-void generateBaseSentenceModel1(FILE* filename)
+void generateBaseSentenceModel1()
 {
     generateNom(); //On génère un nom
     generateAdject(); //On génère un adjectif
@@ -54,7 +54,7 @@ void generateBaseSentenceModel1(FILE* filename)
 }
 
 //Cette fonction permet de générer une phrase de base qui suit le modèle : nom - 'qui' - verbe - verbe - nom - adjectif
-void generateBaseSentenceModel2(FILE* filename)
+void generateBaseSentenceModel2()
 {
     generateNom(); //On génère un premier nom
     printf("qui "); //On affiche le pronom relatif qui
@@ -63,6 +63,162 @@ void generateBaseSentenceModel2(FILE* filename)
     generateNom(); //On génère un second nom
     generateAdject(); //On génère un adjectif
     printf("\n"); //On retourne à la ligne
+}
+
+void generateFlechieSentenceModel1(){
+    char* TousLesTemps[30] = {"IImp","IPSim","PPas","IPre","IFut","CPre","SImp"};
+    int pers, GENRE, NOMBRE;
+    char* PERSONNE;
+    GENRE = rand()%2;
+    NOMBRE = rand()%2;
+    char* TEMP = TousLesTemps[rand()%7];
+    pers = rand()%3;
+    if(pers == 0) PERSONNE = "P1";
+    if(pers == 1) PERSONNE = "P2";
+    if(pers == 2) PERSONNE = "P3";
+
+    if(GENRE == 0 && NOMBRE == 0) {
+        printf("Le ");
+        flechieSpecialNom("Mas", "SG");
+
+        printf(" ");
+        flechieSpecialAdj("Mas", "SG");
+        printf(" ");
+
+
+        flechieSpecialVerb(TEMP, "SG", PERSONNE);
+    }
+    if(GENRE == 1 && NOMBRE == 0) {
+        printf("La ");
+        flechieSpecialNom("Fem", "SG");
+
+        printf(" ");
+        flechieSpecialAdj("Fem", "SG");
+        printf(" ");
+
+
+        flechieSpecialVerb(TEMP, "SG", PERSONNE);
+    }
+    if(GENRE == 0 && NOMBRE == 1) {
+        printf("Les ");
+        flechieSpecialNom("Mas", "PL");
+
+        printf(" ");
+        flechieSpecialAdj("Mas", "PL");
+        printf(" ");
+
+
+        flechieSpecialVerb(TEMP, "PL", PERSONNE);
+    }
+    if(GENRE == 1 && NOMBRE == 1) {
+        printf("Les ");
+        flechieSpecialNom("Fem", "PL");
+
+        printf(" ");
+        flechieSpecialAdj("Fem", "PL");
+        printf(" ");
+
+
+        flechieSpecialVerb(TEMP, "PL", PERSONNE);
+    }
+
+    GENRE = rand()%2;
+    NOMBRE = rand()%2;
+
+    if(GENRE == 0 && NOMBRE == 0) {
+        printf(" un ");
+        flechieSpecialNom("Mas", "SG");
+    }
+    if(GENRE == 1 && NOMBRE == 0) {
+        printf(" une ");
+        flechieSpecialNom("Fem", "SG");
+    }
+    if(GENRE == 0 && NOMBRE == 1) {
+        printf(" des ");
+        flechieSpecialNom("Mas", "PL");
+    }
+    if(GENRE == 1 && NOMBRE == 1) {
+        printf(" des ");
+        flechieSpecialNom("Fem", "PL");
+    }
+}
+
+void generateFlechieSentenceModel2(){
+    char* TousLesTemps[30] = {"IImp","IPSim","PPas","IPre","IFut","CPre","SImp"};
+    int pers, GENRE, NOMBRE;
+    char* PERSONNE;
+    GENRE = rand()%2;
+    NOMBRE = rand()%2;
+    char* TEMP = TousLesTemps[rand()%7];
+    pers = rand()%3;
+    if(pers == 0) PERSONNE = "P1";
+    if(pers == 1) PERSONNE = "P2";
+    if(pers == 2) PERSONNE = "P3";
+
+    if(GENRE == 0 && NOMBRE == 0) {
+        printf("Le ");
+        flechieSpecialNom("Mas", "SG");
+        printf(" qui ");
+
+        flechieSpecialVerb(TEMP, "SG", PERSONNE);
+        printf(" ");
+        flechieSpecialVerb(TEMP, "SG", PERSONNE);
+    }
+    if(GENRE == 1 && NOMBRE == 0) {
+        printf("La ");
+        flechieSpecialNom("Fem", "SG");
+        printf(" qui ");
+
+        flechieSpecialVerb(TEMP, "SG", PERSONNE);
+        printf(" ");
+        flechieSpecialVerb(TEMP, "SG", PERSONNE);
+    }
+    if(GENRE == 0 && NOMBRE == 1) {
+        printf("Les ");
+        flechieSpecialNom("Mas", "PL");
+        printf(" qui ");
+
+        flechieSpecialVerb(TEMP, "PL", PERSONNE);
+        printf(" ");
+        flechieSpecialVerb(TEMP, "PL", PERSONNE);
+    }
+    if(GENRE == 1 && NOMBRE == 1) {
+        printf("Les ");
+        flechieSpecialNom("Fem", "PL");
+        printf(" qui ");
+
+        flechieSpecialVerb(TEMP, "PL", PERSONNE);
+        printf(" ");
+        flechieSpecialVerb(TEMP, "PL", PERSONNE);
+    }
+
+    GENRE = rand()%2;
+    NOMBRE = rand()%2;
+
+    if(GENRE == 0 && NOMBRE == 0) {
+        printf(" un ");
+        flechieSpecialNom("Mas", "SG");
+        printf(" ");
+        flechieSpecialAdj("Mas","SG");
+    }
+    if(GENRE == 1 && NOMBRE == 0) {
+        printf(" une ");
+        flechieSpecialNom("Fem", "SG");
+        printf(" ");
+        flechieSpecialAdj("Fem","SG");
+    }
+    if(GENRE == 0 && NOMBRE == 1) {
+        printf(" des ");
+        flechieSpecialNom("Mas", "PL");
+        printf(" ");
+        flechieSpecialAdj("Mas","PL");
+    }
+    if(GENRE == 1 && NOMBRE == 1) {
+        printf(" des ");
+        flechieSpecialNom("Fem", "PL");
+        printf(" ");
+        flechieSpecialAdj("Fem", "PL");
+    }
 }
 
 //Cette fonction permet de démarer le menu
@@ -131,12 +287,12 @@ void fonction_menu()
             {
                 case 1 :
                     //On génère une phrase de base qui suit le modèle : nom - adjectif - verbe - nom
-                    generateBaseSentenceModel1((FILE *) NotreFichier);
+                    generateBaseSentenceModel1();
                     fonction_menu(); //On retourne au menu principal
                     break;
                 case 2 :
                     //On génère une phrase de base qui suit le modèle : nom - 'qui' - verbe - verbe - nom - adjectif
-                    generateBaseSentenceModel2((FILE *) NotreFichier);
+                    generateBaseSentenceModel2();
                     fonction_menu(); //On retourne au menu principal
                     break;
                 default:
@@ -152,7 +308,7 @@ void fonction_menu()
             printf("#          Generer une forme de flechie          #\n");
             printf("#                                                #\n");
             printf("##################################################\n\n");
-            printf("Quelle fonctionnalite voulez-vous choisir ? \n\n 1. Generer un nom \n 2. Generer un verbe \n 3. Generer un adjectif \n 4. Generer un adverbe \n\n ");
+            printf("Quelle fonctionnalite voulez-vous choisir ? \n\n 1. Generer un nom flechi\n 2. Generer un verbe flechi\n 3. Generer un adjectif flechi\n 4. Generer un adverbe flechi\n\n ");
             scanf(" %d", &sous_menu); //On récupère la saisie du numéro de sous-menu
             switch (sous_menu) //On fait un switch case en fonction de nos sous-menus
             {
@@ -187,7 +343,26 @@ void fonction_menu()
             printf("#          Generer une phrase flechie          #\n");
             printf("#                                              #\n");
             printf("################################################\n\n");
-            printf("Cette fonctionnalite n'est pas disponible !\n\n");
+            printf("Quelle fonctionnalite voulez-vous choisir ? \n\n 1. Generer une phrase du type : nom - adjectif - verbe - nom \n 2. Generer une phrase du type : nom - 'qui' - verbe - verbe - nom - adjectif \n\n");
+            scanf(" %d", &sous_menu); //On récupère la saisie du numéro de sous-menu
+            switch (sous_menu) //On fait un switch case en fonction de nos sous-menus
+            {
+                case 1 :
+                    //On génère une phrase qui suit le modèle : nom - adjectif - verbe - nom
+                    generateFlechieSentenceModel1();
+                    fonction_menu(); //On retourne au menu principal
+                    break;
+                case 2 :
+                    //On génère une phrase qui suit le modèle : nom - 'qui' - verbe - verbe - nom - adjectif
+                    generateFlechieSentenceModel2();
+                    fonction_menu(); //On retourne au menu principal
+                    break;
+                default:
+                    //On affiche un message d'erreur
+                    printf("Ce numero n'existe pas !\n\n");
+                    fonction_menu(); //On retourne au menu principal
+            }
+
             fonction_menu(); //On retourne au menu principal
             break;
 
